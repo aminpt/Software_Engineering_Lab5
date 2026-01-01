@@ -17,8 +17,7 @@
 ### تحلیل علت 
 اگر به فایل JavaCup.java نگاه کنید، متد temp اینگونه است:
 
-
-
+``` java
 public static void temp() {
     ArrayList a = new ArrayList();
     for (int i = 0; i < 10000; i++) // ۱۰ هزار بار
@@ -28,7 +27,7 @@ public static void temp() {
         }
     }
 }
-
+```
 
 این حلقه 
 10,000×20,000=200,000,000
@@ -42,7 +41,7 @@ public static void temp() {
 
 
 کد اصلاح شده
-
+```java
 public static void temp() {
         for (int i = 0; i < 10000; i++)
         {
@@ -50,7 +49,7 @@ public static void temp() {
                 int calculation = i + j;             }
         }
     }
-
+```
 نتایج cpu و hotspot  بعد اعمال تغییرات به این شکل است
 
 ![alt text](Images/CPU2.png)
