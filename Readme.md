@@ -3,22 +3,21 @@
 ## ۱. بخش اول
 
 ### مراحل کشف مشکل 
-برای ریشه‌یابی دقیق خطا، مراحل زیر با استفاده از ابزار **YourKit** انجام شد:
+برای ریشه‌یابی دقیق خطا، مراحل زیر با استفاده از ابزار YourKit انجام شد:
 
-1.  **اجرا و بازسازی خطا:** برنامه با استفاده از پلاگین YourKit در IntelliJ اجرا شد. پس از وارد کردن اعداد ورودی، برنامه وارد وضعیت پردازش سنگین (Freeze) شد.
-2.  **ضبط داده‌ها :** در لحظه‌ی کندی برنامه، دکمه **Start CPU Recording** در پروفایلر فشرده شد تا رفتار برنامه در زمان واقعی ضبط شود. در نهایت capture performance snapshot برای ضبط اسنپ شات زده شد
-3.  **تحلیل نمودارها :**
-    *   با بررسی نمودار **CPU Usage** ، مشاهده شد که پردازنده درگیر محاسبات سنگین می شود.
-    ![alt text](image.png)
+1.  اجرا و بازسازی خطا: برنامه با استفاده از پلاگین YourKit در IntelliJ اجرا شد. پس از وارد کردن اعداد ورودی، برنامه وارد وضعیت پردازش سنگین (Freeze) شد.
+2.  ضبط داده‌ها : در لحظه‌ی کندی برنامه، دکمه Start CPU Recording در پروفایلر فشرده شد تا رفتار برنامه در زمان واقعی ضبط شود. در نهایت capture performance snapshot برای ضبط اسنپ شات زده شد
+3.  تحلیل نمودارها :
+    *   با بررسی نمودار CPU Usage ، مشاهده شد که پردازنده درگیر محاسبات سنگین می شود.
+    ![alt text](Images/CPU1.png)
 
-    *   با مراجعه به تب **Hot Spots** ، متد `temp()` در صدر لیست قرار داشت که نشان می‌داد عمده منابع سیستم در این نقطه مصرف می‌شود.
-    ![alt text](image-1.png)
+    *   با مراجعه به تب Hot Spots ، متد temp() در صدر لیست قرار داشت که نشان می‌داد عمده منابع سیستم در این نقطه مصرف می‌شود.
+    ![alt text](Images/Hotspot1.png)
 
 ### تحلیل علت 
 اگر به فایل JavaCup.java نگاه کنید، متد temp اینگونه است:
 
-
-```java
+``` java
 public static void temp() {
     ArrayList a = new ArrayList();
     for (int i = 0; i < 10000; i++) // ۱۰ هزار بار
@@ -52,6 +51,8 @@ public static void temp() {
     }
 ```
 نتایج cpu و hotspot  بعد اعمال تغییرات به این شکل است
+![alt text](Images/Hotspot2.png)
+![alt text](Images/CPU2.png)
 
 ![alt text](<Screenshot 1404-10-11 at 14.25.15.png>)
 ![alt text](<Screenshot 1404-10-11 at 14.25.20.png>)
@@ -117,3 +118,5 @@ public static boolean isPrimeOptimized(int n) {
 
 ![alt text](<Images/CPU4.png>)
 ![alt text](<Images/HotSpot4.png>)
+![alt text](Images/CPU2.png)
+![alt text](Images/Hotspot2.png)
