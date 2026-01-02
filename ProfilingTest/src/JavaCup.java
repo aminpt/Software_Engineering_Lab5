@@ -22,11 +22,12 @@ public class JavaCup {
         }
         else { System.out.println("NO"); }
     }
-    public static void temp() {
-        for (int i = 0; i < 10000; i++)
-        {
+    public static void temp()
+    {
+        for (int i = 0; i < 10000; i++) {
             for (int j = 0; j < 20000; j++) {
-                int calculation = i + j;             }
+                int calculation = i + j;
+            }
         }
     }
 }
