@@ -54,8 +54,6 @@ public static void temp() {
 ![alt text](Images/Hotspot2.png)
 ![alt text](Images/CPU2.png)
 
-![alt text](<Screenshot 1404-10-11 at 14.25.15.png>)
-![alt text](<Screenshot 1404-10-11 at 14.25.20.png>)
 
 ### ۲. بخش دوم (محاسبه اعداد اول)
 
@@ -82,8 +80,8 @@ public static boolean isPrime(int n) {
 
 در این حالت، مرتبه اجرایی الگوریتم برای هر عدد $O(n)$ است. با توجه به اینکه این متد برای تمام اعداد تا 1000000 فراخوانی می‌شود، مجموع تکرارها بسیار بالا رفته و باعث اشغال طولانی‌مدت CPU می‌گردد.
 
-![alt text](<Images/CPU3.png>)
-![alt text](<Images/HotSpot3.png>)
+![alt text](Images/CPU3.png)
+![alt text](Images/Hotspot3.png)
 
 راه حل
 
@@ -116,7 +114,5 @@ public static boolean isPrimeOptimized(int n) {
 
 این بهینه‌سازی باعث شد بدون تغییر در عملکرد کلی برنامه، کارایی آن بیش از ۶۰۰ برابر بهبود یابد.
 
-![alt text](<Images/CPU4.png>)
-![alt text](<Images/HotSpot4.png>)
-![alt text](Images/CPU2.png)
-![alt text](Images/Hotspot2.png)
+![alt text](Images/CPU4.png)
+![alt text](Images/Hotspot4.png)
